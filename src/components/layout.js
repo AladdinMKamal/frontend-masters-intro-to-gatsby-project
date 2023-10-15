@@ -2,7 +2,9 @@ import * as React from "react";
 
 import { Link, useStaticQuery, graphql } from "gatsby";
 
+import '../styles/global.css'
 import { Seo } from '../components/seo';
+import { header, content } from '../styles/layout.module.css';
 
 export default function Layout({
     children,
@@ -31,13 +33,13 @@ export default function Layout({
                 image={image}
                 description={description}
             />
-            <header style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+            <header className={header}>
                 <Link to="/">{meta.title}</Link>
                 <nav>
                     <Link to="/about">About</Link>
                 </nav>
             </header>
-            <main>{children}</main>
+            <main className={content}>{children}</main>
         </>
     )
 }
